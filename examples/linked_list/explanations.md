@@ -129,4 +129,8 @@ int main() {
 }
 
 ```
+## Diferences between std::list and std::vector
+In C++, std::list and std::vector are two different container classes provided by the Standard Template Library (STL) with distinct characteristics and intended use cases.
 
+* cfecec3f3f
+* wdwewc
