@@ -108,7 +108,7 @@ int main() {
 
 Note that std::fill_n does not perform any bounds checking, so it is important to make sure that the range of elements you are filling does not exceed the size of the array. If you need to fill the entire array, you can use std::fill instead:
 
-'''
+```
 #include <iostream>
 #include <algorithm>
 
@@ -128,4 +128,45 @@ int main() {
     return 0;
 }
 
-'''
+```
+
+## std::reduce:
+std::reduce is a function template in the C++ standard library that applies a binary operation to the elements in a range and returns the result. It is similar to std::accumulate, but it allows the compiler to optimize the operation by rearranging the order of the operations and using parallel execution on multiple threads.
+
+```
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+int main() {
+    std::vector<int> myVector{1, 2, 3, 4, 5};
+
+    // Calculate the sum of the elements in the vector
+    int sum = std::reduce(myVector.begin(), myVector.end(), 0, std::plus<int>());
+
+    std::cout << "Sum of the elements: " << sum << std::endl;
+
+    return 0;
+}
+```
+
+Note that std::reduce can also take an optional execution policy argument, which allows the operation to be performed in parallel using multiple threads:
+
+```
+#include <iostream>
+#include <numeric>
+#include <vector>
+#include <execution>
+
+int main() {
+    std::vector<int> myVector{1, 2, 3, 4, 5};
+
+    // Calculate the sum of the elements in the vector in parallel
+    int sum = std::reduce(std::execution::par, myVector.begin(), myVector.end(), 0, std::plus<int>());
+
+    std::cout << "Sum of the elements: " << sum << std::endl;
+
+    return 0;
+}
+```
+
