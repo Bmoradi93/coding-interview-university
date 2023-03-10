@@ -132,5 +132,7 @@ int main() {
 ## Diferences between std::list and std::vector
 In C++, std::list and std::vector are two different container classes provided by the Standard Template Library (STL) with distinct characteristics and intended use cases.
 
-* cfecec3f3f
+Here are some key differences between std::list and std::vector:
+
+* std::vector uses a contiguous block of memory to store its elements, while std::list uses a doubly-linked list. This means that adding or removing elements from a std::list is faster than std::vector as it doesn't require reallocating the entire block of memory.
 * wdwewc
