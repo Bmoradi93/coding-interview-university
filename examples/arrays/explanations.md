@@ -170,3 +170,4 @@ int main() {
 }
 ```
 
+In this example, we use std::execution::par to specify that the operation should be performed in parallel. This can provide a significant performance boost when operating on large ranges of elements.

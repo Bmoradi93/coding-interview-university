@@ -1,18 +1,14 @@
 #include <iostream>
-#include <algorithm>
+#include <numeric>
+#include <vector>
 
 int main() {
-    int myArray[5];
+    std::vector<int> myVector{1, 2, 3, 4, 5};
 
-    // Fill the first 3 elements of the array with the value 42
-    std::fill_n(myArray, 3, 42);
+    // Calculate the sum of the elements in the vector
+    int sum = std::reduce(myVector.begin(), myVector.end(), 0, std::plus<int>());
 
-    // Print out the contents of the array
-    for (int elem : myArray) {
-        std::cout << elem << " ";
-    }
-
-    std::cout << std::endl;
+    std::cout << "Sum of the elements: " << sum << std::endl;
 
     return 0;
 }
