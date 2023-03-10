@@ -25,4 +25,107 @@ int main() {
 ## Range-based for loops: 
 This is a feature introduced in C++11 that simplifies iterating over arrays and other containers. Instead of using a traditional for loop with an index variable, you can use a range-based for loop that iterates over the elements of the container directly.
 
+```
+#include <iostream>
+#include <array>
+
+int main() {
+    std::array<int, 5> myArray = {1, 2, 3, 4, 5};
+
+    for (int elem : myArray) {
+        std::cout << elem << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+
 ## std::size:
+std::size is a function template introduced in C++17 that provides a standard way to get the size of an array at compile time. It is similar to the sizeof operator, but it works with arrays of any type. The std::size function returns the number of elements in the array, which is a compile-time constant.
+
+```
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string myArray[] = {"foo", "bar", "baz"};
+
+    std::cout << "Size of myArray: " << std::size(myArray) << std::endl;
+
+    return 0;
+}
+```
+
+## std::span: 
+This is a container class introduced in C++20 that provides a view over a contiguous sequence of elements, such as an array or a std::vector. It is similar to std::array, but with a dynamic size that can be determined at runtime.
+One advantage of using std::span over traditional arrays or pointers is that it provides bounds checking at runtime. If you try to access an element outside of the range of the span, it will throw an exception. This can help prevent common bugs and improve the safety of your code.
+
+```
+#include <iostream>
+#include <span>
+
+int main() {
+    int myArray[] = {1, 2, 3, 4, 5};
+    std::span<int> mySpan(myArray, 5);
+
+    for (int elem : mySpan) {
+        std::cout << elem << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+## std::fill_n: 
+std::fill_n is a function template in the C++ standard library that fills a range of n elements with a specified value. It is a convenient way to initialize a block of memory with a specific value.
+
+```
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    int myArray[5];
+
+    // Fill the first 3 elements of the array with the value 42
+    std::fill_n(myArray, 3, 42);
+
+    // Print out the contents of the array
+    for (int elem : myArray) {
+        std::cout << elem << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+
+```
+
+Note that std::fill_n does not perform any bounds checking, so it is important to make sure that the range of elements you are filling does not exceed the size of the array. If you need to fill the entire array, you can use std::fill instead:
+
+'''
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    int myArray[5];
+
+    // Fill the entire array with the value 42
+    std::fill(std::begin(myArray), std::end(myArray), 42);
+
+    // Print out the contents of the array
+    for (int elem : myArray) {
+        std::cout << elem << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
+
+'''
