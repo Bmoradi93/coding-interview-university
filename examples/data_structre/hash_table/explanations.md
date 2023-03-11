@@ -64,3 +64,15 @@ int main() {
 
 ```
 
+In this example, we define a Person class with name and age member variables. We then define a PersonHash struct that overloads the operator() function to define a custom hash function for the Person class. In this case, the hash function combines the hash values of the name and age member variables using the XOR operator.
+
+We create an std::unordered_map object named my_map that maps Person objects to integers, and insert two key-value pairs into the map using brace-enclosed initializer list syntax. We retrieve and print the value associated with the Person object {"Bob", 30}, which uses the custom hash function to determine its index in the map.
+
+## How Hash function works:
+In a hash table implemented in C++, a hash value is an integer value that is computed from the key using a hash function. The hash value is then used as an index into an array of buckets, which stores the key-value pairs.
+
+When a new key-value pair is inserted into the hash table, its key is first hashed to compute the hash value. This hash value is then used to determine the index of the corresponding bucket in the array. If the bucket is empty, the new key-value pair is inserted into the bucket. If the bucket is already occupied, a collision has occurred. In this case, the hash table uses a collision resolution strategy to handle the collision and store the new key-value pair.
+
+To retrieve a value from the hash table using a given key, the hash table first computes the hash value for the key using the same hash function. It then uses the hash value to locate the corresponding bucket in the array. If the bucket is empty or does not contain the key, the key is not present in the hash table. If the bucket contains the key, the corresponding value is returned.
+
+In C++, the standard hash table implementation, std::unordered_map, uses a hash function to compute a hash value for each key. It then stores the key-value pairs in an array of linked lists. If two keys have the same hash value, they are stored in the same linked list. When a key is searched for in the hash table, its hash value is used to locate the correct linked list, and then the list is searched sequentially to find the key.
