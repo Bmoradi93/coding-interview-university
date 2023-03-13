@@ -247,3 +247,6 @@ int main() {
 }
 
 ``` 
+
+## Check if a binary tree is binary SEARCH tree or not
+To check whether a binary tree is a binary search tree or not, we can traverse the tree using inorder traversal and check if the resulting sequence of node values is sorted in ascending order or not. If it is sorted, then the tree is a binary search tree, otherwise it is not.

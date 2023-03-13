@@ -1,14 +1,16 @@
 #include <iostream>
-#include <string>
-using namespace std;
 
-struct Node {
-    string key;
-    Node* left;
+// Node definition
+struct Node
+{
+    int key;
+    Node * left;
     Node* right;
 };
 
-Node* createNode(string key) {
+// Creating anode
+Node* creatNode(int key)
+{
     Node* node = new Node;
     node->key = key;
     node->left = NULL;
@@ -16,58 +18,76 @@ Node* createNode(string key) {
     return node;
 }
 
-Node* insertNode(Node* root, string key) {
-    if (root == NULL) {
-        return createNode(key);
+
+Node* insertNode(Node* root, int key)
+{
+
+    if (root == NULL)
+    {
+        return creatNode(key);
     }
 
-    if (key < root->key) {
+    if (key < root->key)
+    {
         root->left = insertNode(root->left, key);
-    } else {
-        root->right = insertNode(root->right, key);
+    }
+    else
+    {
+        root ->right = insertNode(root->right, key);
     }
 
     return root;
 }
 
-Node* searchNode(Node* root, string key) {
-    if (root == NULL || root->key == key) {
+Node* searchNode(Node* root, int key)
+{
+    if (root == NULL || root->key == key)
+    {
         return root;
     }
 
-    if (key < root->key) {
-        return searchNode(root->left, key);
-    } else {
+    if (key < root->key)
+    {
+        return searchNode(root->left ,key);
+    }
+    else
+    {
         return searchNode(root->right, key);
     }
 }
 
-void inorderTraversal(Node* root) {
-    if (root == NULL) {
+void inorderTraversal(Node* root)
+{
+    if (root == NULL)
+    {
         return;
     }
+
     inorderTraversal(root->left);
-    cout << root->key << " ";
-    inorderTraversal(root->right);
+    std::cout << root->key << "   ";
+    // inorderTraversal(root->right);
+
 }
 
-int main() {
+int main(int argc, char** argv)
+{
     Node* root = NULL;
 
-    root = insertNode(root, "banana");
-    insertNode(root, "apple");
-    insertNode(root, "orange");
-    insertNode(root, "grape");
-    insertNode(root, "pineapple");
+    root = insertNode(root ,50);
 
-    Node* node = searchNode(root, "orange1");
-    if (node != NULL) {
-        cout << "Found node with key " << node->key << endl;
-    } else {
-        cout << "Node not found" << endl;
-    }
+    insertNode(root, 20);
+    insertNode(root, 30);
+    insertNode(root, 40);
+    insertNode(root, 60);
+    insertNode(root, 90);
+    insertNode(root, 80);
+    insertNode(root, -25);
 
-    inorderTraversal(root); // Output: apple banana grape orange pineapple
+    Node* search_result = searchNode(root, 80);
+
+    std::cout << "Results: " << search_result->key << std::endl;
+
+    inorderTraversal(root);
 
     return 0;
 }
