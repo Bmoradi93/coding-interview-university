@@ -1,43 +1,57 @@
 #include <iostream>
 
-using namespace std;
 
-struct TreeNode {
-    int val;
+// Defining a treenode
+
+struct TreeNode
+{
+    int value;
     TreeNode* left;
     TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int val) : value(val), left(nullptr), right(nullptr) {};
 };
 
-void insert(TreeNode*& root, int val) {
-    if (root == nullptr) {
+void insert(TreeNode*& root, int val)
+{
+    //base case
+    if (root == nullptr)
+    {
         root = new TreeNode(val);
         return;
     }
-    if (val < root->val) {
+
+    if (val < root -> value)
+    {
         insert(root->left, val);
     }
-    else {
+    else
+    {
         insert(root->right, val);
     }
 }
 
-void inorder(TreeNode* root) {
-    if (root == nullptr) {
+void inorder(TreeNode* root)
+{
+    // base case
+    if (root == nullptr)
+    {
         return;
     }
+
     inorder(root->left);
-    cout << root->val << " ";
+    std::cout << "Hello" << std::endl;
     inorder(root->right);
 }
 
-int main() {
+
+int main (int argc, char *argv[])
+{
     int n;
-    cin >> n;
+    std::cin >> n;
     TreeNode* root = nullptr;
     for (int i = 0; i < n; i++) {
         int val;
-        cin >> val;
+        std::cin >> val;
         insert(root, val);
     }
     inorder(root);
