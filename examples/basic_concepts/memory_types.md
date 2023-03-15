@@ -12,3 +12,4 @@ In C++, there are several memory types that are used to store data and objects d
 * Thread Local: Thread-local storage (TLS) is a type of memory that is allocated for each thread in a multithreaded program. Memory is accessed using thread-specific keys, and can be used to store data that is local to a particular thread.
 
 Understanding these memory types and their characteristics is important for efficient memory management in C++. It is essential to choose the right memory type for storing data and objects, depending on their scope, lifetime, and accessibility.
+
