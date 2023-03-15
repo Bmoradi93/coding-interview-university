@@ -17,6 +17,7 @@
 <details>
 <summary>Translations:</summary>
 
+- [اردو - Urdu](translations/README-ur.md)
 - [中文版本](translations/README-cn.md)
 - [Tiếng Việt - Vietnamese](translations/README-vi.md)
 - [Español](translations/README-es.md)
@@ -45,13 +46,12 @@
 - [Українська](https://github.com/jwasham/coding-interview-university/issues/106)
 - [Korean(한국어)](https://github.com/jwasham/coding-interview-university/issues/118)
 - [Telugu](https://github.com/jwasham/coding-interview-university/issues/117)
-- [Urdu](https://github.com/jwasham/coding-interview-university/issues/519)
 - [Thai](https://github.com/jwasham/coding-interview-university/issues/156)
 - [Greek](https://github.com/jwasham/coding-interview-university/issues/166)
 - [Malayalam](https://github.com/jwasham/coding-interview-university/issues/239)
 - [Persian - Farsi](https://github.com/jwasham/coding-interview-university/issues/186)
+- [Italian](https://github.com/jwasham/coding-interview-university/issues/1030)
 - [Afrikaans](https://github.com/jwasham/coding-interview-university/issues/1164)
-
 </details>
 
 <div align="center">
